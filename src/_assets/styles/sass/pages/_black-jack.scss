@@ -1,0 +1,128 @@
+$title-width: 30rem;
+$title-height: $title-width;
+.rules{
+    text-align: center;
+}
+.hud {
+    position: relative;
+    height: 45rem;
+     margin: 15vh auto 0 auto;
+     background-color: $color-gray-1;
+     border: $color-gray-2 solid 1px;
+     border-radius: 4px;
+     padding: $pad-sm;
+
+}
+
+.black-jack-title-con{
+    ////// THIS IS JUST TO POSITION THE DIV IN THE MIDDLE
+    position: absolute;
+    @include center-block;
+    top: -2.5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: $title-width;
+    height: $title-height;
+    // background-color: $color-gray-3;
+}
+.black-jack-title{
+
+    position: relative;
+    width: $title-width;
+    height: $title-height;
+    perspective: 85rem;
+    -moz-perspective: 85rem;
+
+    .title-common {
+        position: absolute;
+        height: $title-height;
+        width: $title-width;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        transition: all 1.5s ease;
+  
+  
+        img{
+            @include max-100;
+        }
+  
+    }
+    &-front{
+        animation-name: unset;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+    &-back{
+        z-index:-1;
+        // transform: rotateY(180deg)
+        animation-name: unset;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+
+    // &:hover &-front{
+    //     // transform: rotateY(-180deg);
+    // }
+    // &:hover &-back{
+    //     // transform: rotateY(0);
+    // }
+}
+
+.cards {
+    @include center-block(2.5rem);
+    max-width: 55%;
+
+
+    .card {
+        display: inline-block;
+        margin: 0 auto;
+    
+        height: 7rem;
+        width: 5rem;
+        background-color: $color-gray-5;
+        &:not(:first-child){
+            margin-left: 1rem;
+        }
+        img{
+            @include max-100;
+        }
+    }
+}
+
+
+.card-string{
+    display: block;
+}
+.player-box{
+    text-align: center;
+    // margin-top: 4rem;
+}
+
+#player-total-cash, #dealer-total-cash{
+    display: none;
+}
+
+.controls {
+    width: 100%;
+    // background-color: $color-gray-2;
+    margin: 4rem 0;
+    text-align: center;
+}
+footer{
+    background-color: $color-white;
+    height: 85px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: $color-gray-2 1px solid;
+    padding: 1.5rem;
+}
+.disclosure {
+@include center-block;
+width: 45rem;
+text-align: center;
+
+}
+

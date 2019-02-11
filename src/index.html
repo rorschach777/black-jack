@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./_assets/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="rules">
+          <span>X</span>&nbsp;<span>Rules</span>
+        </div>
+      </header>
+ 
+      <!-- <img src='./_assets/images/js.jpg'> -->
+
+
+      <div class="active-indicator left"></div>
+<!-- 
+      <div class="row testing">
+        <div class="container">
+            <div class="col col-1-of-2"></div>
+            <div class="col col-1-of-2"></div>
+        </div>
+      </div>
+      <div class="row testing">
+        <div class="container">
+          <div class="col col-2-of-3"></div>
+          <div class="col col-1-of-3"></div>
+        </div>
+      </div> -->
+
+      <!-- HUD -->
+<main>
+  <div class="row">
+    <div class="container hud">
+      <div class="col-1-of-2 player-box">
+        <div class="status-con">
+          <div class="player"><h1>Player</h1></div>
+          
+          <div  id="player-total-score" class="total-score">
+            <h2>0</h2>
+          </div>
+          <div  id="player-total-cash" class="total-cash">$0</div><br/>
+          
+        </div>
+        <div class="cards" id="player-playing-cards">
+          <!-- PLAYER -->
+        </div>
+      
+        <div id="player-card-hand" class="card-hand"><span class="default-message">Cards:</span></div>
+      </div>
+      <!-- START -->
+      <div class="black-jack-title-con col-4">
+      <h6 id="round-outcome">Winner<span>$100</span></h6>
+      
+      <div class="black-jack-title">
+          <div class="title-common black-jack-title-front">
+            <img src="_assets/images/black-jack-hero.png">
+          </div>
+          <div class="title-common black-jack-title-back">
+            <img src="_assets/images/black-jack-hero-back.png">
+          </div>
+        </div>
+                      
+      </div>
+      <!-- END -->
+      <div class="col-1-of-2 dealer player-box">
+        <div class="status-con">
+          <div class="player"><h1>Dealer</h1></div>
+          <div id="dealer-total-score" class="total-score"><h2>0</h2></div>
+          <div  id="dealer-total-cash" class="total-cash">$0</div><br/>
+        </div>
+        <div class="cards"  id="dealer-playing-cards">
+            <!-- DEALER -->
+        </div>
+     
+        <div id="dealer-card-hand"  class="card-hand"><span class="default-message">Cards:</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+<section>
+  <div class="row controls">
+      <div class="buttons buffer">
+        <a id="new-game-button" class="new-game btn">New Game</a>
+        <a id="hit-button" class="hit-button btn">HIT</a>
+        <a id="stay-button" class="stay-button btn"> STAY</a>
+      </div>
+    </div>
+</section>
+<footer>
+  <div class="fine-text disclosure">
+      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+  </div>
+</footer>
+
+</body>
+</html>

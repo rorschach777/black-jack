@@ -1,0 +1,15 @@
+@mixin center-block($x: 0px ){
+    margin: $x auto;
+    display: block;
+}
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear:both;
+    }
+}
+@mixin max-100{
+    width: 100%;
+    max-width: 100%;
+}

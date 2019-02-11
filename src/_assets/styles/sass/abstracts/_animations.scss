@@ -1,0 +1,33 @@
+@keyframes rotateFront{
+    0%{
+    transform: rotateY(0deg);
+    }
+    100%{
+      transform: rotateY(-180deg);
+    }
+}
+@keyframes rotateBack{
+    0%{
+        transform: rotateY(180deg);
+    }
+    100%{
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes rotateFrontRev{
+    0%{
+    transform: rotateY(-180deg);
+    }
+    100%{
+      transform: rotateY(0deg);
+    }
+}
+@keyframes rotateBackRev{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
