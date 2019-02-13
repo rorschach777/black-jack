@@ -3,16 +3,10 @@
    width:100%;
 
 }
-.container{
-    width: $container-width; 
-    @include center-block;
-    background-color: #ddd;
- 
 
-}
 [class^='col']{
     &:not(:last-child){
-        margin-right: $gutter-horz-md;
+        margin-right: $gutter-horz-none;
     }
 }
 .col{
@@ -20,15 +14,15 @@
     // height: 20px;
  
     &-1-of-2{
-        width: calc((100% - #{$gutter-horz-md} * 1) / 2);
+        width: calc((100% - #{$gutter-horz-none} * 1) / 2);
         float: left;
     }
     &-1-of-3{
-        width: calc((100% - #{$gutter-horz-md} * 2) / 3);
+        width: calc((100% - #{$gutter-horz-none} * 2) / 3);
         float: left;
     }
     &-1-of-4{
-        width: calc((100% - #{$gutter-horz-md} * 3) / 4);
+        width: calc((100% - #{$gutter-horz-none} * 3) / 4);
         float: left;
     }
     &-2-of-3{

@@ -1,103 +1,62 @@
-$title-width: 30rem;
-$title-height: $title-width;
+
 .rules{
     text-align: center;
 }
 .hud {
+    //testing
+
+    // in use
     position: relative;
     height: 45rem;
      margin: 15vh auto 0 auto;
      background-color: $color-gray-1;
      border: $color-gray-2 solid 1px;
      border-radius: 4px;
-     padding: $pad-sm;
+    //  padding: $pad-sm;
+     .hud-active-player{
+         display: block;
+     }
 
 }
 
-.black-jack-title-con{
-    ////// THIS IS JUST TO POSITION THE DIV IN THE MIDDLE
-    position: absolute;
-    @include center-block;
-    top: -2.5rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: $title-width;
-    height: $title-height;
-    // background-color: $color-gray-3;
-}
-.black-jack-title{
-
-    position: relative;
-    width: $title-width;
-    height: $title-height;
-    perspective: 85rem;
-    -moz-perspective: 85rem;
-
-    .title-common {
-        position: absolute;
-        height: $title-height;
-        width: $title-width;
-        top: 0;
-        left: 0;
-        backface-visibility: hidden;
-        transition: all 1.5s ease;
-  
-  
-        img{
-            @include max-100;
-        }
-  
-    }
-    &-front{
-        animation-name: unset;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
-    &-back{
-        z-index:-1;
-        // transform: rotateY(180deg)
-        animation-name: unset;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
-
-    // &:hover &-front{
-    //     // transform: rotateY(-180deg);
-    // }
-    // &:hover &-back{
-    //     // transform: rotateY(0);
-    // }
-}
-
-.cards {
-    @include center-block(2.5rem);
-    max-width: 55%;
-
-
-    .card {
-        display: inline-block;
-        margin: 0 auto;
-    
-        height: 7rem;
-        width: 5rem;
-        background-color: $color-gray-5;
-        &:not(:first-child){
-            margin-left: 1rem;
-        }
-        img{
-            @include max-100;
-        }
-    }
-}
-
-
-.card-string{
-    display: block;
-}
 .player-box{
-    text-align: center;
+    //testing
     // margin-top: 4rem;
+
+    // in use
+    text-align: center;
+    position: relative;
+    z-index: 9;
+    position: relative;
+
+    &-active{
+        background: linear-gradient(180deg, rgba(0,0,0,.19),rgba(0,0,0,.05));
+        height: 100%;
+    }
+    .player{
+        //testing
+        // background-color: $color-white;
+        
+        //in use
+        @include center-block;
+        position: relative;
+
+        width: 26rem;
+
+        .player-active{
+            position: absolute;
+            display: block;
+            top: 1.5rem;
+            left: 1.5rem;
+            width: 2rem;
+            height: 2rem;
+            background-color: $color-ios-pink;
+            display: block;
+            border-radius: 5rem;
+        
+        }
+    }
+
 }
 
 #player-total-cash, #dealer-total-cash{

@@ -60,89 +60,9 @@ h6 {
 .u-center-text {
   text-align: center; }
 
-.btn {
-  padding: .5rem 1rem;
-  width: 20rem;
-  margin: 0 1.5rem;
-  background-color: #fafafa;
-  border-radius: 25px;
-  border: 1px solid #f2007f;
-  color: #f2007f;
-  cursor: pointer;
-  transition: all .4s;
-  position: relative; }
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    color: #fafafa;
-    background-color: #f2007f; }
-  .btn::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f2007f;
-    border-radius: 25px;
-    transition: all .7s ease;
-    z-index: -1;
-    opacity: .5; }
-  .btn:active {
-    transform: translateY(1px);
-    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.4); }
-  .btn:hover::after {
-    transform: scaleX(1.2) scaleY(1.5);
-    opacity: 0; }
-
-.testing {
-  height: 50px; }
-
-.row {
-  width: 100%; }
-  .row::after {
-    content: "";
-    display: table;
-    clear: both; }
-
-.container {
-  width: 140rem;
-  margin: 0px auto;
-  display: block;
-  background-color: #ddd; }
-
-[class^='col']:not(:last-child) {
-  margin-right: 4.5rem; }
-
-.col {
-  background-color: #ff2d55; }
-  .col-1-of-2 {
-    width: calc((100% - 4.5rem * 1) / 2);
-    float: left; }
-  .col-1-of-3 {
-    width: calc((100% - 4.5rem * 2) / 3);
-    float: left; }
-  .col-1-of-4 {
-    width: calc((100% - 4.5rem * 3) / 4);
-    float: left; }
-  .col-2-of-3 {
-    width: calc(2 * ((100% - 2 * 4.5rem) / 3) + 4.5rem);
-    float: left; }
-
-.rules {
-  text-align: center; }
-
-.hud {
-  position: relative;
-  height: 45rem;
-  margin: 15vh auto 0 auto;
-  background-color: #f7f7f7;
-  border: #e7e7e7 solid 1px;
-  border-radius: 4px;
-  padding: 1.5rem; }
-
 .black-jack-title-con {
   position: absolute;
+  z-index: 10;
   margin: 0px auto;
   display: block;
   top: -2.5rem;
@@ -179,6 +99,41 @@ h6 {
     animation-duration: 2s;
     animation-fill-mode: forwards; }
 
+.btn {
+  padding: .5rem 1rem;
+  width: 20rem;
+  margin: 0 1.5rem;
+  background-color: #fafafa;
+  border-radius: 25px;
+  border: 1px solid #f2007f;
+  color: #f2007f;
+  cursor: pointer;
+  transition: all .4s;
+  position: relative; }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    color: #fafafa;
+    background-color: #f2007f; }
+  .btn::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f2007f;
+    border-radius: 25px;
+    transition: all .7s ease;
+    z-index: -1;
+    opacity: .5; }
+  .btn:active {
+    transform: translateY(1px);
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.4); }
+  .btn:hover::after {
+    transform: scaleX(1.2) scaleY(1.5);
+    opacity: 0; }
+
 .cards {
   margin: 2.5rem auto;
   display: block;
@@ -198,8 +153,73 @@ h6 {
 .card-string {
   display: block; }
 
-.player-box {
+.container {
+  width: 140rem;
+  margin: 0px auto;
+  display: block;
+  background-color: #ddd; }
+
+.row {
+  width: 100%; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+
+[class^='col']:not(:last-child) {
+  margin-right: 0rem; }
+
+.col {
+  background-color: #ff2d55; }
+  .col-1-of-2 {
+    width: calc((100% - 0rem * 1) / 2);
+    float: left; }
+  .col-1-of-3 {
+    width: calc((100% - 0rem * 2) / 3);
+    float: left; }
+  .col-1-of-4 {
+    width: calc((100% - 0rem * 3) / 4);
+    float: left; }
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 4.5rem) / 3) + 4.5rem);
+    float: left; }
+
+.rules {
   text-align: center; }
+
+.hud {
+  position: relative;
+  height: 45rem;
+  margin: 15vh auto 0 auto;
+  background-color: #f7f7f7;
+  border: #e7e7e7 solid 1px;
+  border-radius: 4px; }
+  .hud .hud-active-player {
+    display: block; }
+
+.player-box {
+  text-align: center;
+  position: relative;
+  z-index: 9;
+  position: relative; }
+  .player-box-active {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.19), rgba(0, 0, 0, 0.05));
+    height: 100%; }
+  .player-box .player {
+    margin: 0px auto;
+    display: block;
+    position: relative;
+    width: 26rem; }
+    .player-box .player .player-active {
+      position: absolute;
+      display: block;
+      top: 1.5rem;
+      left: 1.5rem;
+      width: 2rem;
+      height: 2rem;
+      background-color: #ff2d55;
+      display: block;
+      border-radius: 5rem; }
 
 #player-total-cash, #dealer-total-cash {
   display: none; }

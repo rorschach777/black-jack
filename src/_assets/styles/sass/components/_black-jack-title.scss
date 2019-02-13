@@ -1,0 +1,55 @@
+$title-width: 30rem;
+$title-height: $title-width;
+
+.black-jack-title-con{
+    ////// THIS IS JUST TO POSITION THE DIV IN THE MIDDLE
+    position: absolute;
+    z-index: 10;
+    @include center-block;
+    top: -2.5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: $title-width;
+    height: $title-height;
+    // background-color: $color-gray-3;
+}
+
+
+.black-jack-title{
+
+    position: relative;
+    width: $title-width;
+    height: $title-height;
+    perspective: 85rem;
+    -moz-perspective: 85rem;
+
+    .title-common {
+        position: absolute;
+        height: $title-height;
+        width: $title-width;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        transition: all 1.5s ease;
+  
+  
+        img{
+            @include max-100;
+        }
+  
+    }
+    &-front{
+        animation-name: unset;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+    &-back{
+        z-index:-1;
+        // transform: rotateY(180deg)
+        animation-name: unset;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+
+}

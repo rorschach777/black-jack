@@ -1,0 +1,25 @@
+.cards {
+    @include center-block(2.5rem);
+    max-width: 55%;
+
+
+    .card {
+        display: inline-block;
+        margin: 0 auto;
+    
+        height: 7rem;
+        width: 5rem;
+        background-color: $color-gray-5;
+        &:not(:first-child){
+            margin-left: 1rem;
+        }
+        img{
+            @include max-100;
+        }
+    }
+}
+
+
+.card-string{
+    display: block;
+}
