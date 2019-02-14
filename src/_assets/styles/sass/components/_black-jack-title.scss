@@ -1,4 +1,4 @@
-$title-width: 30rem;
+$title-width: 40rem;
 $title-height: $title-width;
 
 .black-jack-title-con{
@@ -6,7 +6,7 @@ $title-height: $title-width;
     position: absolute;
     z-index: 10;
     @include center-block;
-    top: -2.5rem;
+    top: -2.8rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -50,6 +50,41 @@ $title-height: $title-width;
         animation-name: unset;
         animation-duration: 2s;
         animation-fill-mode: forwards;
+        position: relative;
+        #game-status{
+            margin: 0 auto;
+            position: absolute;
+            text-align: center;
+            top: 12rem;
+            left: 0;
+            bottom: 0;
+            right:0;
+            height: 15rem;
+            width: 80%;
+            color: $color-white;
+            
+
+            &-amount-won{
+                font-size: 3.2rem;
+                color: inherit;
+            }
+            &-who-won{
+                font-size: 3.8rem !important;
+                color: inherit;
+            }
+            &-reason{
+                font-size: 1.4rem;
+                font-weight: 300;
+                margin: 1.5rem 0;
+                color: inherit;
+            }
+
+            #see-cash{
+                max-width: 10rem;
+            }
+         
+        
+        }
     }
 
 }

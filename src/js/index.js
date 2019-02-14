@@ -5,6 +5,8 @@ import {elements} from './Views/base'
 import * as cardView from './Views/CardsView';
 import * as scoreView from './Views/ScoresView';
 import * as cashView from './Views/cashView';
+import '../_assets/fonts/foundation-icons.ttf';
+import * as helpers from './helpers'
 
 const appController = () => {
     let cardValues, cardSuits
@@ -42,13 +44,72 @@ const appController = () => {
        let x = state.activePlayer
         return x;
     }
+    const toggleUi = () => {
+        let x, y
+        const handler = (x, y)=>{
+            console.log(`Active: ${x} |  Non-Active: ${y}`);
+     
+            // let parent = elements[x].title
+            // let child = elements.activeSelector
+            // parent.remove(child);
+  
+            elements[x].box.classList.add('player-box-active');
+            elements[x].active.classList.remove('u-hide');
+            elements[y].box.classList.remove('player-box-active');
+            elements[y].active.classList.add('u-hide');
+
+            
+        }
+        x = returnActivePlayer();
+        
+    
+            if (x === 'player'){
+                x = 'player';
+                y = 'dealer';
+                handler(x, y);
+            }
+            else {
+                x = 'dealer';
+                y = 'player';
+                handler(x, y);
+            }
+
+            //initial deal
+            // if ( state.player.cards.length == 2 && state.dealer.cards.length == 2 ){
+            //     console.log('Initial Deal');
+            //     elements[x].box.classList.add('player-box-active');
+            // }
+            // else if (state.dealer.cards.length > 2 ){
+            //     elements.player.box.classList.add('player-box-active');
+            //     elements.dealer.box.classList.remove('player-box-active');
+            // }
+            // if (elements.stayButton.clicked == true){
+            //     console.log('player Cards are greater than 2, or stay button clicked');
+            //     elements[x].box.classList.add('player-box-active');
+            //     elements.player.box.classList.remove('player-box-active');
+            // } 
+            // elements.stayButton.addEventListener('click', ()=>{
+            //         console.log('stay button clicked');
+            //         elements[x].box.classList.add('player-box-active');
+            //         elements.player.box.classList.remove('player-box-active');
+     
+            // });
+            
+  
+
+     
+    }
     const togglePlayer = () => {
-        let x = returnActivePlayer();
+        let x, y
+        x = returnActivePlayer();
+ 
         if (x == 'player'){
             state.togglePlayer = 'dealer'
+            toggleUi();
         }
         else {
             state.togglePlayer = 'player'
+            toggleUi();
         }
     }
     const dealCard = (loc) => {
@@ -74,14 +135,18 @@ const appController = () => {
         if (state.dealer.totalScore <= 17 || state.dealer.totalScore < state.player.totalScore){
             console.log('dealer is less than 17')
             // togglePlayer();
+    
             for (let i = 0; i < state.deck.length; i ++){
                 hitMe();
+     
                 cardView.showCardImg(state.dealer.cards, returnActivePlayer());
                 if (state.dealer.totalScore > state.player.totalScore){
                     break;
                 }
             }
+         
             togglePlayer();
+         
        
         }
     }
@@ -90,30 +155,30 @@ const appController = () => {
         playerScore = state.player.totalScore;
         dealerScore = state.dealer.totalScore;
         if (playerScore > dealerScore){
-            console.log('player currently winning');
+            // console.log('player currently winning');
             if(playerScore > 21){
      
                 sendCash(state.dealer.totalCash);
-                endOfGame('player loses, over 21');
+                endOfGame('$100', 'Dealer Wins', 'Player\'s card total was over 21');
             }
             else if(playerScore === 21){
          
                 sendCash(state.player.totalCash);
-                endOfGame('player wins');
+                endOfGame('$100', 'Player Wins', 'Dealer wins. Exactly 21');
             }
       
         }
         else if (dealerScore > playerScore){
-            console.log('dealer currently winning');
+            // console.log('dealer currently winning');
             if(dealerScore > 21){
           
                 sendCash(state.player.totalCash);
-                endOfGame('dealer loses over 21');
+                endOfGame('$100', 'Player Wins', 'Dealer\'s card total was over 21');
    
             }
             else if(dealerScore === 21){
                 sendCash(state.dealer.totalCash);
-                endOfGame('dealer wins exactly 21');
+                endOfGame('$100', 'Dealer Wins', 'Dealer wins. Exactly 21');
        
             }
 
@@ -131,15 +196,23 @@ const appController = () => {
     }
     const stay = () => {
         togglePlayer();
+        console.log('------ STAY Clicked-------')
+        toggleUi();
+        
         // let loc = returnActivePlayer();
         // cardView.cardHand(loc, state.player.cards);
         // scoreView.updateScore(state.player.totalScore, state.dealer.totalScore);
-        dealerAi();
+        setTimeout(function(){
+          dealerAi();
+        }, 1000);
+     
     }
-    const endOfGame = (x) => {
+    const endOfGame = (x, y, z) => {
         elements.hitButton.style.display = 'none';
         elements.stayButton.style.display = 'none';
-        elements.outcome.textContent = x;
+        elements.gameStatusCash.textContent = x;
+        elements.gameStatusWinner.textContent = y;
+        elements.gameStatusReason.textContent = z;
         elements.newGameButton.style.display = 'inline-block';
         elements.titleFront.style.animationName = 'rotateFront';
         elements.titleBack.style.animationName = 'rotateBack';
@@ -151,14 +224,14 @@ const appController = () => {
         state.player.totalScore= 0;
         state.player.roundScores= []; 
 
-        elements.outcome.textContent = 'Currently playing a new round'
+        // elements.outcome.textContent = 'Currently playing a new round'
 
         state.dealer.cards = [];
         state.dealer.totalScore = 0;
         state.dealer.roundScores = []; 
 
-        console.log('------- REFRESHED STATE -------')
-        console.log(state );
+        // console.log('------- REFRESHED STATE -------')
+        // console.log(state );
 
         cardView.clearCards('player', state.player.cards)
         cardView.clearCards('dealer', state.dealer.cards)
@@ -193,7 +266,7 @@ const appController = () => {
 
         scoreView.updateScore(state.player.totalScore, state.dealer.totalScore);
 
-        console.log(state);
+        // console.log(state);
    }
    setupGame();
 
@@ -214,8 +287,20 @@ const appController = () => {
         setupGame();
         elements.titleFront.style.animationName = 'rotateFrontRev';
         elements.titleBack.style.animationName = 'rotateBackRev';
+        elements.hud.inner.style.animationName = 'rotateFrontRev';
+        elements.hud.back.style.animationName = 'rotateBackRev'; 
 
     });
+
+    elements.seeCashBtn.addEventListener('click', ()=>{
+        elements.hud.inner.style.animationName = 'rotateFront';
+        elements.hud.back.style.animationName = 'rotateBack'; 
+    });
+    
+  
+    
+    elements.cashViewBtn.addEventListener('click', helpers.cashViewHandler);
+    
 }
 appController();
 

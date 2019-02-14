@@ -30,12 +30,45 @@
         opacity: .5;
 
     }
-    &:active{
-        transform: translateY(1px);
-        box-shadow: .2rem .2rem .5rem rgba(0,0,0,.4);
+    @include btn-physics;
+}
+
+.btn-circ{
+    display: inline-block;
+    width: 4.2rem;
+    height: 4.2rem;
+    text-align: center;
+    margin: 0 .5rem;
+    background-color: $color-white;
+    border-radius: 50px;
+    border: 1px solid $color-3;
+    color: $color-3;
+    cursor: pointer;
+    transition: all .4s;
+    position: relative;
+
+
+    &:hover{
+        transform: translateY(-2px);
+        box-shadow: .5rem .5rem 1rem rgba(0,0,0,.2);
+        color: $color-white;
+        background-color: $color-3;
     }
-    &:hover::after{
-        transform: scaleX(1.2) scaleY(1.5);
-        opacity: 0;
+    &::after{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-3;
+        border-radius: 25px;
+        transition: all .7s ease;
+        z-index: -1;
+        opacity: .5;
+
     }
+
+    @include btn-physics(2.0, 2.0);
+
 }

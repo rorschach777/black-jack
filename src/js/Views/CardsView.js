@@ -39,14 +39,14 @@ export const showCardImg = (arrOfCards, activePlayer) => {
     }
 
     if (arrOfCards.length > 2){
-        console.log(`arr of cards is greater than two ${activePlayer}`);
+        // console.log(`arr of cards is greater than two ${activePlayer}`);
         indexSelector = arrOfCards.length - 1;
         separatedStr = arrOfCards[indexSelector].split(' ');
         markup = `<div class="card"><img src="./_assets/images/cards/${separatedStr[0]}-of-${separatedStr[2]}.png"></div>`;
         elements[activePlayer].playingCards.insertAdjacentHTML('beforeend', markup)
     }
     else if(arrOfCards.length <= 2){
-        console.log(`arr of cards is less than two ${activePlayer}`);
+        // console.log(`arr of cards is less than two ${activePlayer}`);
         arrOfCards.forEach((cur, idx)=> {
             separatedStr = cur.split(' ');
             markup = `<div class="card"><img src="./_assets/images/cards/${separatedStr[0]}-of-${separatedStr[2]}.png"></div>`;

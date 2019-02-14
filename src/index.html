@@ -7,96 +7,170 @@
     <link rel="stylesheet" type="text/css" href="./_assets/styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="./_assets/fonts/foundation-icons.ttf" rel="stylesheet">
 </head>
 <body>
+  <div class="main-content">
     <header>
-        <div class="rules">
-          <span>X</span>&nbsp;<span>Rules</span>
+   
+    </header>
+    
+          <!-- <img src='./_assets/images/js.jpg'> -->
+    
+    
+          <div class="active-indicator left"></div>
+    <!-- 
+          <div class="row testing">
+            <div class="container">
+                <div class="col col-1-of-2"></div>
+                <div class="col col-1-of-2"></div>
+            </div>
+          </div>
+          <div class="row testing">
+            <div class="container">
+              <div class="col col-2-of-3"></div>
+              <div class="col col-1-of-3"></div>
+            </div>
+          </div> -->
+    
+          <!-- HUD -->
+    <main>
+      <div class="row ">
+        <div class="modal">
+            <div class="modal-inner">
+                <h4>OBJECT OF THE GAME</h4>
+                <p>Each participant attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21.</p>
+                
+                <h4>CARD VALUES/SCORING</h4>
+                <p>It is up to each individual player if an ace is worth 1 or 11. Face cards are 10 and any other card is its pip value.</p>
+                
+                <h4>BETTING</h4>
+                <p>Before the deal begins, each player places a bet, in chips, in front of him in the designated area. Minimum and maximum limits are established on the betting, and the general limits are from $2 to $500.</p>
+                
+                <h4>THE SHUFFLE AND CUT</h4>
+                <p>The dealer thoroughly shuffles portions of the pack until all the cards have been mixed and combined. He designates one of the players to cut, and the plastic insert card is placed so that the last 60 to 75 cards or so will not be used. (Not dealing to the bottom of all the cards makes it more difficult for professional card counters to operate effectively.)</p>
+                
+                <h4>THE DEAL</h4>
+                <p>When all the players have placed their bets, the dealer gives one card face up to each player in rotation clockwise, and then one card face up to himself. Another round of cards is then dealt face up to each player, but the dealer takes his second card face down. Thus, each player except the dealer receives two cards face up, and the dealer receives one card face up and one card face down. (In some games, played with only one deck, the players' cards are dealt face down and they get to hold them. Today, however, virtually all Blackjack games feature the players' cards dealt face up on the condition that no player may touch any cards.)</p>
+                
+                <h4>NATURALS</h4>
+                <p>If a player's first two cards are an ace and a "ten-card" (a picture card or 10), giving him a count of 21 in two cards, this is a natural or "blackjack." If any player has a natural and the dealer does not, the dealer immediately pays that player one and a half times the amount of his bet. If the dealer has a natural, he immediately collects the bets of all players who do not have naturals, (but no additional amount). If the dealer and another player both have naturals, the bet of that player is a stand-off (a tie), and the player takes back his chips.</p>
+                
+                <p>If the dealer's face-up card is a ten-card or an ace, he looks at his face-down card to see if the two cards make a natural. If the face-up card is not a ten-card or an ace, he does not look at the face-down card until it is the dealer's turn to play.</p>
+                
+                <h4>THE PLAY</h4>
+                <p>The player to the left goes first and must decide whether to "stand" (not ask for another card) or "hit" (ask for another card in an attempt to get closer to a count of 21, or even hit 21 exactly). Thus, a player may stand on the two cards originally dealt him, or he may ask the dealer for additional cards, one at a time, until he either decides to stand on the total (if it is 21 or under), or goes "bust" (if it is over 21). In the latter case, the player loses and the dealer collects the bet wagered. The dealer then turns to the next player to his left and serves him in the same manner.</p>
+                
+                <p>The combination of an ace with a card other than a ten-card is known as a "soft hand," because the player can count the ace as a 1 or 11, and either draw cards or not. For example with a "soft 17" (an ace and a 6), the total is 7 or 17. While a count of 17 is a good hand, the player may wish to draw for a higher total. If the draw creates a bust hand by counting the ace as an 11, the player simply counts the ace as a 1 and continues playing by standing or "hitting" (asking the dealer for additional cards, one at a time).</p>
+                
+                <h4>THE DEALER'S PLAY</h4>
+                <p>When the dealer has served every player, his face-down card is turned up. If the total is 17 or more, he must stand. If the total is 16 or under, he must take a card. He must continue to take cards until the total is 17 or more, at which point the dealer must stand. If the dealer has an ace, and counting it as 11 would bring his total to 17 or more (but not over 21), he must count the ace as 11 and stand. The dealer's decisions, then, are automatic on all plays, whereas the player always has the option of taking one or more cards.</p>
+                </p>
+   
+            </div>
+    
         </div>
-      </header>
- 
-      <!-- <img src='./_assets/images/js.jpg'> -->
-
-
-      <div class="active-indicator left"></div>
-<!-- 
-      <div class="row testing">
-        <div class="container">
-            <div class="col col-1-of-2"></div>
-            <div class="col col-1-of-2"></div>
+        <div class="btn-top-con">
+            <div  id="btn-cash-view" class="btn-circ">
+                <i class="fi-dollar"></i>
+            </div>
+            <div id="btn-rules" class="btn-circ">
+                <i class="fi-asterisk"></i>
+            </div>
         </div>
-      </div>
-      <div class="row testing">
-        <div class="container">
-          <div class="col col-2-of-3"></div>
-          <div class="col col-1-of-3"></div>
-        </div>
-      </div> -->
-
-      <!-- HUD -->
-<main>
-  <div class="row">
-    <div class="container hud">
-      <div class="col-1-of-2 player-box player-box-active">
-        <div class="status-con">
-          <div class="player"><span class="player-active"></span><h1>Player</h1></div>
+    
+        <div class="hud container ">
+          <div id="hud-inner" class="hud-inner">
+            <div id="box-player" class="col-1-of-2 player-box">
+              <div class="status-con">
+                <div id="title-player" class="player" ><span  id="player-active" class="player-active"></span><h1>Player</h1></div>
+                <div  id="player-total-score" class="total-score">
+                  <h2>0</h2>
+                </div>
+                <div  id="player-total-cash" class="total-cash">$0</div><br/>
+                
+              </div>
+              <div class="cards" id="player-playing-cards">
+                <!-- PLAYER -->
+              </div>
+            
+              <div id="player-card-hand" class="card-hand"><span class="default-message">Cards:</span></div>
+            </div>
+            <!-- START -->
+            <div class="black-jack-title-con col-4">
+    
+            
+            <div class="black-jack-title">
+                <div class="title-common black-jack-title-front">
+                  <img src="_assets/images/black-jack-hero.png">
+                </div>
+                <div class="title-common black-jack-title-back">
+                  <img src="_assets/images/black-jack-hero-back.png">
+                  <div id="game-status">
+                    <h1 id="game-status-amount-won">$500</h1>
+                    <h2 id="game-status-who-won">Player Wins</h2>
+                    <h3 id="game-status-reason">Over 21</h3>
+                    <button class="btn" id="see-cash">See Cash</button>
+                  </div>
+                </div>
+              </div>
+                            
+            </div>
+            <!-- END -->
+            <div id="box-dealer" class="col-1-of-2 dealer player-box">
+              <div class="status-con">
+                <div id="title-dealer" class="player"><span id="dealer-active" class="player-active u-hide"></span><h1>Dealer</h1></div>
+                <div id="dealer-total-score" class="total-score"><h2>0</h2></div>
+                <div  id="dealer-total-cash" class="total-cash">$0</div><br/>
+              </div>
+              <div class="cards"  id="dealer-playing-cards">
+                  <!-- DEALER -->
+              </div>
           
-          <div  id="player-total-score" class="total-score">
-            <h2>0</h2>
-          </div>
-          <div  id="player-total-cash" class="total-cash">$0</div><br/>
+              <div id="dealer-card-hand"  class="card-hand"><span class="default-message">Cards:</span></div>
+            </div>
           
-        </div>
-        <div class="cards" id="player-playing-cards">
-          <!-- PLAYER -->
-        </div>
-      
-        <div id="player-card-hand" class="card-hand"><span class="default-message">Cards:</span></div>
-      </div>
-      <!-- START -->
-      <div class="black-jack-title-con col-4">
-      <h6 id="round-outcome">Winner<span>$100</span></h6>
-      
-      <div class="black-jack-title">
-          <div class="title-common black-jack-title-front">
-            <img src="_assets/images/black-jack-hero.png">
           </div>
-          <div class="title-common black-jack-title-back">
-            <img src="_assets/images/black-jack-hero-back.png">
+          <div id="hud-back" class="hud-inner-back">
+            <div class="hud-back-inner">
+                <div class="col-1-of-2 player-box">
+                    <div class="cash-area">
+                      <h2>Player</h2>
+                      <h1 id="cash-area-player">$0</h1>
+                      <img class="footer-img" src = "_assets/images/suits-black.png"/>
+                    </div>
+                </div>
+                <div class="hud-back-inner-hero">
+                   <img src="_assets/images/black-jack-back-cash.png"/>
+                </div>
+                <div class="col-1-of-2 player-box">
+                  <div class="cash-area">
+                    <h2>Dealer</h2>
+                    <h1 id="cash-area-dealer">$0</h1>
+                    <img class="footer-img" src ="_assets/images/suits-pink.png"/>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </main>
+    <section>
+      <div class="row controls">
+          <div class="buttons buffer">
+            <a id="new-game-button" class="new-game btn">New Game</a>
+            <a id="hit-button" class="hit-button btn">HIT</a>
+            <a id="stay-button" class="stay-button btn"> STAY</a>
           </div>
         </div>
-                      
+    </section>
+    <footer>
+      <div class="fine-text disclosure">
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
       </div>
-      <!-- END -->
-      <div class="col-1-of-2 dealer player-box">
-        <div class="status-con">
-          <div class="player"><h1>Dealer</h1></div>
-          <div id="dealer-total-score" class="total-score"><h2>0</h2></div>
-          <div  id="dealer-total-cash" class="total-cash">$0</div><br/>
-        </div>
-        <div class="cards"  id="dealer-playing-cards">
-            <!-- DEALER -->
-        </div>
-     
-        <div id="dealer-card-hand"  class="card-hand"><span class="default-message">Cards:</span></div>
-      </div>
-    </div>
+    </footer>
   </div>
-</main>
-<section>
-  <div class="row controls">
-      <div class="buttons buffer">
-        <a id="new-game-button" class="new-game btn">New Game</a>
-        <a id="hit-button" class="hit-button btn">HIT</a>
-        <a id="stay-button" class="stay-button btn"> STAY</a>
-      </div>
-    </div>
-</section>
-<footer>
-  <div class="fine-text disclosure">
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-  </div>
-</footer>
+    
 
 </body>
 </html>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack  --mode development --open",
-    "build": "webpack src/js/index.js",
+    "build": "webpack ./src/js/index.js",
     "build:prod": "webpack -p",
     "dev": "webpack-dev-server src/js/index.js --mode development --open",
     "compile:sass": "node-sass src/_assets/styles/sass/main.scss src/_assets/styles/styles.css -w"

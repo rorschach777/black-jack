@@ -8,7 +8,7 @@ export const displayCash = (pCash, dCash) => {
         return x;
     }
 
-    playerCash.textContent = `$${addCashUp(pCash)}`;
-    dealerCash.textContent = `$${addCashUp(dCash)}`;
+    elements.player.cashArea.textContent = `$${addCashUp(pCash)}`;
+    elements.dealer.cashArea.textContent = `$${addCashUp(dCash)}`;
 
 }
