@@ -4,12 +4,13 @@ export const elements = {
    dealerCards : document.querySelector('#dealer-card-hand'),
    dealerScore :  document.querySelector('#dealer-total-score'),
    dealerCash : document.querySelector('#dealer-total-cash'),
-   seeCashBtn: document.querySelector('#see-cash'),
+   seeCashBtn: document.querySelector('.see-cash'),
    cashViewBtn: document.querySelector('#btn-cash-view'),
 
    hud : {
       inner: document.querySelector('#hud-inner'),
-      back: document.querySelector('#hud-back')
+      back: document.querySelector('#hud-back'), 
+ 
    },
 
 
@@ -45,8 +46,10 @@ export const elements = {
    gameStatusWinner: document.querySelector('#game-status-who-won'),
    gameStatusReason: document.querySelector('#game-status-reason'), 
 
-   titleFront : document.querySelector('.black-jack-title-front'),
-   titleBack : document.querySelector('.black-jack-title-back'),
+   titleFront: document.querySelector('.black-jack-title-front'),
+   titleBack: document.querySelector('.black-jack-title-back'),
 
+   titleFrontMobile: document.querySelector('.black-jack-mobile-inner-side-front'),
+   titleBackMobile: document.querySelector('.black-jack-mobile-inner-side-back')
    
 }

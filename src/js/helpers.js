@@ -21,4 +21,22 @@ export const cashViewHandler = () => {
     }
 
 }
+export const titleHandler = () => {
+    let x = elements.titleFront.style.animationName;
+    console.log(`TITLE HANDLER | ${x}`);
+    if ( x === '' || x === 'rotateFrontRev'){
+        elements.titleFront.style.animationName = 'rotateFront';
+        elements.titleBack.style.animationName = 'rotateBack'; 
+        elements.titleFrontMobile.style.animationName = 'rotateFront';
+        elements.titleBackMobile.style.animationName = 'rotateBack'; 
+    }
+    else{
+        elements.titleFront.style.animationName = 'rotateFrontRev';
+        elements.titleBack.style.animationName = 'rotateBackRev'; 
+        elements.titleFrontMobile.style.animationName = 'rotateFrontRev';
+        elements.titleBackMobile.style.animationName = 'rotateBackRev'; 
+        console.log(`TITLE HANDLER ROTATE BACK | ${x}`);
+
+    }
+}
 

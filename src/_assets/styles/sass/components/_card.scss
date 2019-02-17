@@ -9,6 +9,10 @@
     
         height: 7rem;
         width: 5rem;
+        @media(max-width: $tablet){
+            height: 4rem;
+            width: 3rem;
+        }
         background-color: $color-gray-5;
         &:not(:first-child){
             margin-left: 1rem;

@@ -7,6 +7,7 @@
 @import 'base/padding';
 @import 'base/typography';
 @import 'base/utilities';
+@import 'base/media-queries';
 
 @import 'components/black-jack-title.scss';
 @import 'components/buttons';
@@ -14,8 +15,10 @@
 @import 'components/hud';
 @import 'components/card';
 
+
 @import 'layouts/container';
 @import 'layouts/grid';
 
 
 @import 'pages/black-jack';
+@import 'pages/header';

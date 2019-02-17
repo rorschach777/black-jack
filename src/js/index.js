@@ -164,7 +164,7 @@ const appController = () => {
             else if(playerScore === 21){
          
                 sendCash(state.player.totalCash);
-                endOfGame('$100', 'Player Wins', 'Dealer wins. Exactly 21');
+                endOfGame('$100', 'Player Wins', 'Player Wins. Exactly 21');
             }
       
         }
@@ -216,6 +216,8 @@ const appController = () => {
         elements.newGameButton.style.display = 'inline-block';
         elements.titleFront.style.animationName = 'rotateFront';
         elements.titleBack.style.animationName = 'rotateBack';
+        elements.titleFrontMobile.style.animationName = 'rotateFront';
+        elements.titleBackMobile.style.animationName = 'rotateBack';
     }
     const refreshState =() =>{
         state.deck = [];
@@ -285,16 +287,14 @@ const appController = () => {
     ///////// New Game Button Controller 
     elements.newGameButton.addEventListener('click', ()=>{
         setupGame();
-        elements.titleFront.style.animationName = 'rotateFrontRev';
-        elements.titleBack.style.animationName = 'rotateBackRev';
-        elements.hud.inner.style.animationName = 'rotateFrontRev';
-        elements.hud.back.style.animationName = 'rotateBackRev'; 
-
+        helpers.titleHandler();
     });
 
+    ///////// See Cash Button
     elements.seeCashBtn.addEventListener('click', ()=>{
-        elements.hud.inner.style.animationName = 'rotateFront';
-        elements.hud.back.style.animationName = 'rotateBack'; 
+        helpers.cashViewHandler();
+        // elements.hud.inner.style.animationName = 'rotateFront';
+        // elements.hud.back.style.animationName = 'rotateBack'; 
     });
     
   

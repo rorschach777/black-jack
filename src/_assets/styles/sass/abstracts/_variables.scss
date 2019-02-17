@@ -28,3 +28,10 @@ $gutter-horz-none: 0rem;
 
 
 $pad-sm: 1.5rem;
+
+
+$edge: 15px;
+$mobile-width: calc(100% - (#{$edge} * 2));
+$switch-width: 1080px;
+$tablet: 768px;
+$mobile: 480px;

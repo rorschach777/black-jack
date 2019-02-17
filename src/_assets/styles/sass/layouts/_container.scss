@@ -1,5 +1,9 @@
+
 .container{
     width: $container-width; 
     @include center-block;
+    @media(max-width: $switch-width){
+        width: $mobile-width;
+    }
     // background-color: #ddd;
 }
