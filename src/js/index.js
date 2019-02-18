@@ -164,7 +164,7 @@ const appController = () => {
             else if(playerScore === 21){
          
                 sendCash(state.player.totalCash);
-                endOfGame('$100', 'Player Wins', 'Player Wins. Exactly 21');
+                endOfGame('$100', 'Player Wins', 'Dealer wins. Exactly 21');
             }
       
         }

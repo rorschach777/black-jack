@@ -1,6 +1,4 @@
 export const elements = {
-
-
    dealerCards : document.querySelector('#dealer-card-hand'),
    dealerScore :  document.querySelector('#dealer-total-score'),
    dealerCash : document.querySelector('#dealer-total-cash'),
@@ -13,8 +11,6 @@ export const elements = {
  
    },
 
-
-   
    player : {
       playingCards: document.querySelector('#player-playing-cards'),
       box: document.querySelector('#box-player'),
@@ -53,3 +49,4 @@ export const elements = {
    titleBackMobile: document.querySelector('.black-jack-mobile-inner-side-back')
    
 }
+

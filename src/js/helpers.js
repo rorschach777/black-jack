@@ -1,6 +1,9 @@
 import {elements} from './Views/base';
 
 
+
+
+
 export const cashViewHandler = () => {
     
     let x = elements.hud.inner.style.animationName;
