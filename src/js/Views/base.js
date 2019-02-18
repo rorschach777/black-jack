@@ -5,6 +5,7 @@ export const elements = {
    seeCashBtn: document.querySelector('.see-cash'),
    cashViewBtn: document.querySelector('#btn-cash-view'),
 
+
    hud : {
       inner: document.querySelector('#hud-inner'),
       back: document.querySelector('#hud-back'), 
@@ -37,6 +38,7 @@ export const elements = {
    newGameButton : document.querySelector('#new-game-button'),
    hitButton : document.querySelector('#hit-button'),
    stayButton : document.querySelector('#stay-button'),
+   continuePlayingButton: document.querySelector('#continue-playing-button'),
 
    gameStatusCash: document.querySelector('#game-status-amount-won'), 
    gameStatusWinner: document.querySelector('#game-status-who-won'),
