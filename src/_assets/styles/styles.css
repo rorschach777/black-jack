@@ -1392,7 +1392,10 @@ h6 {
   cursor: pointer;
   transition: all .4s;
   position: relative;
-  outline: none; }
+  outline: none;
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: 'Montserrat', sans-serif; }
   .btn:active {
     transform: translateY(1px);
     box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.4); }
@@ -1437,6 +1440,9 @@ h6 {
   transition: all .4s;
   position: relative;
   outline: none;
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: 'Montserrat', sans-serif;
   width: 180px;
   font-size: 1.4rem; }
   .btn-secondary:active {

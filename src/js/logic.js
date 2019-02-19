@@ -8,7 +8,6 @@ import * as cashView from './Views/cashView';
 import '../_assets/fonts/foundation-icons.ttf';
 
 
-
 const state = {
     cards: null,
     score: null,
@@ -68,9 +67,10 @@ export const setupGame=()=>{
 
     scoreView.updateScore(state.player.totalScore, state.dealer.totalScore);
 
+    hideStay();
+
     // console.log(state);
 }
-
 
 export const returnActivePlayer = () =>{
 let x = state.activePlayer
@@ -78,24 +78,24 @@ return x;
 }
 
 export const toggleUi = () => {
-let x, y
-const handler = (x, y)=>{
-elements[x].box.classList.add('player-box-active');
-elements[x].active.classList.remove('u-hide');
-elements[y].box.classList.remove('player-box-active');
-elements[y].active.classList.add('u-hide'); 
-}
-x = returnActivePlayer();
-if (x === 'player'){
-    x = 'player';
-    y = 'dealer';
-    handler(x, y);
-}
-else {
-    x = 'dealer';
-    y = 'player';
-    handler(x, y);
-}
+    let x, y
+    const handler = (x, y)=>{
+    elements[x].box.classList.add('player-box-active');
+    elements[x].active.classList.remove('u-hide');
+    elements[y].box.classList.remove('player-box-active');
+    elements[y].active.classList.add('u-hide'); 
+    }
+    x = returnActivePlayer();
+    if (x === 'player'){
+        x = 'player';
+        y = 'dealer';
+        handler(x, y);
+    }
+    else {
+        x = 'dealer';
+        y = 'player';
+        handler(x, y);
+    }
 }
 
 export const togglePlayer = () => {
@@ -128,17 +128,63 @@ const handleScores = (loc) => {
     loc.totalScore = x;
 }
 
-export const sendCash = (loc)=>{
-    let x = state.cash.oneHundred();
-    loc.push(x);
-    cashView.displayCash(state.player.totalCash, state.dealer.totalCash);
+export const determineWinner = () =>{
+    let playerScore, dealerScore 
+    playerScore = state.player.totalScore;
+    dealerScore = state.dealer.totalScore;
+    if (playerScore > dealerScore){
+        // console.log('player currently winning');
+        if(playerScore > 21){
+            sendCash(state.dealer.totalCash, 'dealer');
+            endOfGame('$100', 'Dealer Wins', 'Player\'s card total was over 21');
+        }
+        else if(playerScore === 21){
+     
+            sendCash(state.player.totalCash, 'player');
+            endOfGame('$500', 'Player Wins', 'Dealer wins. Exactly 21');
+        }
+  
+    }
+    else if (dealerScore > playerScore){
+        // console.log('dealer currently winning');
+        if(dealerScore > 21){
+      
+            sendCash(state.player.totalCash, 'player');
+            endOfGame('$100', 'Player Wins', 'Dealer\'s card total was over 21');
+
+        }
+        else if(dealerScore === 21){
+            sendCash(state.dealer.totalCash, 'dealer');
+            endOfGame('$500', 'Dealer Wins', 'Dealer wins. Exactly 21');
+   
+        }
+    }
+    else if (dealerScore == playerScore){
+        alert('Scores Equal');
+    } 
+}
+
+export const sendCash = (loc, winner)=>{
+    let amount
+    const sendCashHandler=(amount)=>{
+        loc.push(amount);
+        cashView.displayCash(state.player.totalCash, state.dealer.totalCash);
+    }
+    // console.log(state[winner].totalScore);
+    if (state[winner].totalScore == 21){
+       amount =  state.cash.fiveHundred();
+       sendCashHandler(amount);
+    }
+    else if(state[winner].totalScore < 21){
+         amount =  state.cash.oneHundred();
+         sendCashHandler(amount);
+    }
 }
 
 export const dealerAi = () =>{
-    if (state.dealer.totalScore <= 17 || state.dealer.totalScore < state.player.totalScore){
+    if (state.dealer.totalScore <= 17 || state.dealer.totalScore < state.player.totalScore || state.dealer.totalScore == state.player.totalScore){
         console.log('dealer is less than 17')
         // togglePlayer();
-
         for (let i = 0; i < state.deck.length; i ++){
             hitMe();
  
@@ -147,44 +193,27 @@ export const dealerAi = () =>{
                 break;
             }
         }
-     
         togglePlayer();
-     
-   
+    }
+    else if(state.dealer.totalScore > 17 && state.dealer.totalScore > state.player.totalScore){
+        console.log('dealer is greater than 17 & dealer is greater than player')
+        // hitMe();
+        // togglePlayer();
     }
 }
 
-export const determineWinner = () =>{
+
+export const hideStay = () => {
     let playerScore, dealerScore 
     playerScore = state.player.totalScore;
     dealerScore = state.dealer.totalScore;
-    if (playerScore > dealerScore){
-        // console.log('player currently winning');
-        if(playerScore > 21){
-            sendCash(state.dealer.totalCash);
-            endOfGame('$100', 'Dealer Wins', 'Player\'s card total was over 21');
-        }
-        else if(playerScore === 21){
-     
-            sendCash(state.player.totalCash);
-            endOfGame('$100', 'Player Wins', 'Dealer wins. Exactly 21');
-        }
-  
-    }
-    else if (dealerScore > playerScore){
-        // console.log('dealer currently winning');
-        if(dealerScore > 21){
-      
-            sendCash(state.player.totalCash);
-            endOfGame('$100', 'Player Wins', 'Dealer\'s card total was over 21');
 
-        }
-        else if(dealerScore === 21){
-            sendCash(state.dealer.totalCash);
-            endOfGame('$100', 'Dealer Wins', 'Dealer wins. Exactly 21');
-   
-        }
-    } 
+    if (playerScore < dealerScore){
+        elements.stayButton.style.display = 'none'
+    }
+    else if (playerScore > dealerScore || playerScore === dealerScore){
+        elements.stayButton.style.display = 'inline-block'
+    }
 }
 
 export const hitMe = () => {
@@ -195,22 +224,16 @@ export const hitMe = () => {
     scoreView.updateScore(state.player.totalScore, state.dealer.totalScore);
     cardView.showCardImg(state[returnActivePlayer()].cards, returnActivePlayer());
     determineWinner();
-
+    hideStay();
     console.log(state);
 }
 
 export const stay = () => {
     togglePlayer();
-    console.log('------ STAY Clicked-------')
     toggleUi();
-    
-    // let loc = returnActivePlayer();
-    // cardView.cardHand(loc, state.player.cards);
-    // scoreView.updateScore(state.player.totalScore, state.dealer.totalScore);
     setTimeout(function(){
       dealerAi();
     }, 1000);
- 
 }
 
 export const endOfGame = (x, y, z) => {
@@ -225,7 +248,6 @@ export const endOfGame = (x, y, z) => {
     elements.titleFrontMobile.style.animationName = 'rotateFront';
     elements.titleBackMobile.style.animationName = 'rotateBack';
 }
-
 
 export const refreshState =() =>{
     state.deck = [];

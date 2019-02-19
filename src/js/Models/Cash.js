@@ -3,4 +3,7 @@ export default class Cash {
     oneHundred (){
         return 100
     }
+    fiveHundred(){
+        return 500
+    }
 }
