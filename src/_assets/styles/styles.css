@@ -22,6 +22,22 @@
   100% {
     transform: rotateY(180deg); } }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    display: none; }
+  100% {
+    opacity: 1;
+    display: block; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    display: block; }
+  100% {
+    opacity: 0;
+    display: none; } }
+
 .u-hide {
   display: none !important; }
 
@@ -1512,54 +1528,90 @@ h6 {
     opacity: 0;
     z-index: -1; }
 
+.closing-icon {
+  position: relative;
+  transition: all .5s ease;
+  top: -30px;
+  padding: 0px;
+  width: 2.5rem;
+  height: 2rem;
+  cursor: pointer;
+  float: right; }
+  .closing-icon span {
+    width: 2.5rem;
+    height: .2rem;
+    border-radius: 8px;
+    background-color: #fafafa;
+    display: block;
+    position: absolute;
+    top: 1rem; }
+    .closing-icon span:nth-child(1) {
+      transform: rotate(-45deg); }
+    .closing-icon span:nth-child(2) {
+      transform: rotate(45deg); }
+  .closing-icon:hover {
+    transform: scale(2); }
+    .closing-icon:hover:nth-child(1) {
+      transform: rotate(-180deg); }
+    .closing-icon:hover:nth-child(2) {
+      transform: rotate(180deg); }
+
 .modal {
-  margin: 0px auto;
-  display: block;
   position: absolute;
   content: '';
-  max-width: 1080px;
-  height: auto;
-  overflow: hidden;
-  background-color: #38424b;
-  border-radius: 8px;
-  top: -9rem;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  color: #fafafa;
-  padding: 1.5rem;
-  display: none; }
-  .modal h4 {
-    font-weight: 400;
-    margin: 1.2rem 0; }
-  .modal p {
-    font-size: 1.4rem !important;
-    color: #e7e7e7;
-    font-weight: 300;
-    line-height: 1.9rem; }
-  .modal-inner {
-    margin: 0px auto;
-    display: block;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 999; }
+  .modal__con {
     position: relative;
-    height: 100%;
-    overflow: hidden; }
-    .modal-inner .rules {
+    width: 100%;
+    min-height: 50rem;
+    margin-top: 15%; }
+    .modal__con__card {
       margin: 0px auto;
       display: block;
-      position: absolute;
-      bottom: 0x;
-      left: 0px;
-      right: 0px;
-      text-align: center;
-      background-color: #38424b;
-      width: 18rem;
-      padding: .9rem 0;
-      color: #fafafa;
-      border-bottom-right-radius: 30px;
-      border-bottom-left-radius: 30px;
-      clip-path: polygon(0 0%, 100% 0%, 92% 98%, 8% 98%);
-      border: 1px solid #333;
+      background-color: #fff;
+      border-radius: 4px;
+      max-width: 90%;
+      width: 140rem;
+      color: #666666; }
+  .modal .accordian {
+    margin: 0px auto;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    height: auto;
+    overflow: hidden; }
+    .modal .accordian__outer {
+      min-height: 100px;
+      position: relative;
+      top: 0;
+      float: left;
+      width: 24%;
+      margin: 0;
       cursor: pointer; }
+    .modal .accordian__inner {
+      transition: all .2s ease; }
+      .modal .accordian__inner__title {
+        border-bottom: 1px solid #dddddd;
+        padding: 1rem; }
+      .modal .accordian__inner__content {
+        display: none;
+        margin-top: 1rem;
+        padding: 0 1rem;
+        animation-name: unset;
+        opacity: 1;
+        font-weight: 300;
+        animation-fill-mode: forwards; }
+    .modal .accordian .active {
+      border-left: 1px solid #dddddd;
+      border-right: 1px solid #dddddd;
+      border-top: 1px solid #dddddd;
+      border-bottom: none;
+      background-color: #fafafa; }
+    .modal .accordian p {
+      font-size: 1.2rem; }
 
 .cards {
   margin: 2.5rem auto;
@@ -1569,8 +1621,7 @@ h6 {
     display: inline-block;
     margin: 0 auto;
     height: 7rem;
-    width: 5rem;
-    background-color: #666666; }
+    width: 5rem; }
     @media (max-width: 768px) {
       .cards .card {
         height: 4rem;
@@ -1580,6 +1631,12 @@ h6 {
     .cards .card img {
       width: 100%;
       max-width: 100%; }
+
+.card-hand {
+  color: #666666;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem; }
 
 .card-string {
   display: block; }
@@ -1617,13 +1674,14 @@ h6 {
     width: calc(2 * ((100% - 2 * 4.5rem) / 3) + 4.5rem);
     float: left; }
 
-.main-content {
+main {
   position: relative;
-  top: 0px; }
+  min-height: 600px;
+  top: 100px; }
 
 .btn-top-con {
   position: fixed;
-  top: 2.5rem;
+  top: .5rem;
   left: 2.5rem;
   background-color: white !important;
   font-size: 3.5rem; }
@@ -1756,6 +1814,6 @@ footer {
 
 header {
   width: 100%;
-  height: 8rem;
+  height: 6rem;
   border-bottom: 1px solid #eee;
   margin-bottom: 6.5rem; }

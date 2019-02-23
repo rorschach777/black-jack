@@ -1,13 +1,14 @@
 
-
-.main-content{
+main {
+// background-color: $color-ios-pink;
 position: relative;
-top:0px;
+min-height: 600px;
+top:100px;
 }
 
 .btn-top-con{
     position: fixed;
-    top: 2.5rem;
+    top: .5rem;
     left: 2.5rem;
     background-color: rgba(255,255,255,1) !important;
     font-size: 3.5rem;

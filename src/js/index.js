@@ -32,6 +32,23 @@ const appController = () => {
         
     /// CONTINUE BUTTON
     elements.continuePlayingButton.addEventListener('click', logic.cashViewHandler);
+
+    /// Modal
+   Array.from(elements.accordianTitle).forEach((cur, idx)=>{
+       cur.addEventListener('click', function(e){
+    
+           let el = e.target.nextElementSibling
+    
+           if(el.style.display == ''  ){
+             el.style.display = 'block'
+           }  else if(el.style.display == 'block'  ) {
+            el.style.display = '';
+            el.style.animationName = ''
+          
+           }
+           console.log(el);
+       }) 
+   })
     
 }
 appController();

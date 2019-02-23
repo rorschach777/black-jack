@@ -13,7 +13,7 @@
             height: 4rem;
             width: 3rem;
         }
-        background-color: $color-gray-5;
+        // background-color: $color-gray-5;
         &:not(:first-child){
             margin-left: 1rem;
         }
@@ -22,7 +22,12 @@
         }
     }
 }
-
+.card-hand{
+    color: $color-gray-5;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
 
 .card-string{
     display: block;

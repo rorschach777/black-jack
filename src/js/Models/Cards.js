@@ -22,9 +22,9 @@ export default class Cards {
         let x = Math.trunc(Math.random() * deck.length);
         // Select A Card from the Deck with the Random Number. 
         const card = deck[x];
-    
+
         this.removeCard(x, deck);
-        // this.p(deck);
+
         return card;
     }
     removeCard (ranIdx, cardDeck) {

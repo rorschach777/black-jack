@@ -1,54 +1,134 @@
-.modal{
+.closing-icon{
+    position: relative;
+    transition: all .5s ease;
+    top: -30px;
 
-    @include center-block;
-    position: absolute;
-    content: '';
-    max-width: 1080px;
-    height: auto;
-    overflow: hidden;
-    background-color: $color-1;
-    border-radius: 8px;
-    top:-9rem;
+    padding: 0px;
+    width: 2.5rem;
+    height: 2rem;
+    cursor: pointer;
+    float: right;
 
-    left: 0;
-    right:0;
-    z-index: 999;
-    color: $color-white;
-    padding: 1.5rem;
-    h4{
-        font-weight: 400;
-        margin: 1.2rem 0;
-    }
-    p{
-        font-size: 1.4rem !important;
-        color: $color-gray-2;
-        font-weight: 300;
-        line-height: 1.9rem;
-    }
-    &-inner{
-        @include center-block;
-        position: relative;
+    span {
+        width: 2.5rem;
+        height:.2rem;
+        border-radius: 8px;
+        background-color: $color-white;
+        display: block;
+        position: absolute;
+        top: 1rem;
+   
+        &:nth-child(1){
+            transform: rotate(-45deg) ;
 
-        height: 100%;
-        overflow: hidden;
-        .rules{
-            @include center-block;
-            position: absolute;
-            bottom: 0x;
-            left: 0px;
-            right: 0px;
-            text-align: center;
-            background-color: $color-1;
-            width: 18rem;
-            padding: .9rem 0;
-            color: $color-white;
-            border-bottom-right-radius: 30px;
-            border-bottom-left-radius: 30px;
-            clip-path: polygon(0 0%, 100% 0%, 92% 98%, 8% 98%);
-            border: 1px solid #333;
-            cursor: pointer;
         }
+        &:nth-child(2){
+            transform: rotate(45deg) ;
+    
+         
+        }
+       
+     
+        
+    }
+    &:hover{
+        transform: scale(2);
+        &:nth-child(1){
+            transform: rotate(-180deg);
+        
+        }
+        &:nth-child(2){
+            transform: rotate(180deg);
+         
+        }
+    }
+  
+}
+
+.modal {
+position: absolute;
+content: '';
+height: 100%;
+width: 100%;
+background-color: rgba(0,0,0,.9);
+z-index: 999;
+    &__con{
+        position: relative;
+        width: 100%;
+        min-height: 50rem;
+   
+        margin-top: 15%;
+        &__card{
+            @include center-block;
+            background-color: #fff;
+            border-radius: 4px;
+            // padding: 1.5rem;
+            max-width: 90%;
+            width: $container-width;
+            color: $color-gray-5;
+        }
+    }
+    .accordian{
+        @include center-block;
+        width: 100%;
+        padding: 15px;
+        height: auto;
+        overflow: hidden;
+   
+        // &__inner {
+ 
+        //     border-bottom: 1px solid $color-gray-3;
+        //     list-style: none;
+        //     height: auto;
+        //     overflow: hidden;
+
+        // }
+
+       &__outer {
+            min-height: 100px;
+            position: relative;
+            top: 0;
+            float: left;
+            width: 24%;
+            margin:0;
+            cursor: pointer;
+          
+       
+
+        }
+        &__inner{
+            transition: all .2s ease;
+            &__title{
+                border-bottom: 1px solid $color-gray-3;
+                padding:1rem;
+            }
+         
+            &__content{
+                display: none;
+                margin-top: 1rem;
+                padding: 0 1rem;
+                animation-name: unset;
+                opacity: 1;
+                font-weight: 300;
+                animation-fill-mode: forwards;
+            }
+        
+        }
+        .active{
+    
+            border-left: 1px solid $color-gray-3;
+            border-right: 1px solid $color-gray-3;
+            border-top: 1px solid $color-gray-3;
+            border-bottom:none;
+            background-color: $color-white;
+
+        }
+        & p {
+            font-size:  1.2rem;
+        }
+       
+    
 
     }
-    display: none;
+
 }

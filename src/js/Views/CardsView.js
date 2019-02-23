@@ -31,13 +31,7 @@ export const clearCards = (target, cards) => {
     elements.dealer.playingCards.innerHTML = '';
 }
 export const showCardImg = (arrOfCards, activePlayer) => {
-
     let markup, separatedStr, indexSelector
-
-    const insertCard = () => {
-  
-    }
-
     if (arrOfCards.length > 2){
         // console.log(`arr of cards is greater than two ${activePlayer}`);
         indexSelector = arrOfCards.length - 1;
@@ -54,6 +48,4 @@ export const showCardImg = (arrOfCards, activePlayer) => {
          
        })
     }
-
-  
 }

@@ -1,4 +1,8 @@
 export const elements = {
+   accordianTitle: document.querySelectorAll('.accordian__inner__title'),
+   accordianContent: document.querySelectorAll('.accordian__inner__content'),
+   accordianContent1: document.querySelector('#accordian-content-1'),
+   
    dealerCards : document.querySelector('#dealer-card-hand'),
    dealerScore :  document.querySelector('#dealer-total-score'),
    dealerCash : document.querySelector('#dealer-total-cash'),
