@@ -8,7 +8,11 @@ export const elements = {
    dealerCash : document.querySelector('#dealer-total-cash'),
    seeCashBtn: document.querySelector('.see-cash'),
    cashViewBtn: document.querySelector('#btn-cash-view'),
+   rulesViewBtn: document.querySelector('#btn-rules'),
 
+
+   modal: document.querySelector('#modal'),
+   modalClose: document.querySelector('#modal-close'),
 
    hud : {
       inner: document.querySelector('#hud-inner'),
